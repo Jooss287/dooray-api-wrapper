@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from typing import List, Dict, Optional, Union
 from enum import Enum
 
-from src.const.const import Scope, Type, State
+from dooray_api_wrapper.const.const import Scope, Type, State
 
 
 class SearchType(Enum):

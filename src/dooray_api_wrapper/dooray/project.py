@@ -1,8 +1,8 @@
 from typing import Dict, List, Union, Optional
 
-from src.common import dooray_request
-from src.const.const import Scope, Type, State
-from src.structure import response_result, response_header
+from dooray_api_wrapper.common import dooray_request
+from dooray_api_wrapper.const.const import Scope, Type, State
+from dooray_api_wrapper.structure import response_result, response_header
 
 
 def get_project_list(
