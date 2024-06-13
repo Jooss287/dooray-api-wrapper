@@ -38,7 +38,7 @@ class ProjectResult(BaseModel):
         """
         regex = re.compile(title)
         for project in self.result:
-            if getattr(regex, search_type.value)(title) is not None:
+            if getattr(regex, search_type.value)(project.code) is not None:
                 return project
         return None
 
@@ -55,11 +55,25 @@ class WikiResultItem(BaseModel):
 class WikiResult(BaseModel):
     result: List[WikiResultItem]
 
+    def find_wiki_by_title(
+        self, title: str, *, search_type: SearchType = SearchType.SEARCH
+    ) -> Optional[WikiResultItem]:
+        """위키 목록에서 title에 해당하는 위키를 찾아서 반환합니다.
+        SEARCH: title에 해당하는 위키를 찾아서 반환합니다.
+        MATCH: title로 시작하는 위키를 찾아서 반환합니다.
+        FULLMATCH: title과 정확히 일치하는 위키를 찾아서 반환합니다.
+        """
+        regex = re.compile(title)
+        for wiki in self.result:
+            if getattr(regex, search_type.value)(wiki.name) is not None:
+                return wiki
+        return None
+
 
 class WikiPageResultItem(BaseModel):
     id: Optional[str] = None
     wikiId: Optional[str] = None
-    version: Optional[str] = None
+    version: Optional[int] = None
     parentPageId: Optional[str] = None
     subject: Optional[str] = None
     root: Optional[bool] = None
@@ -71,4 +85,4 @@ class WikiPageResultItem(BaseModel):
 
 
 class WikiPageResult(BaseModel):
-    result: List[WikiResultItem]
+    result: List[WikiPageResultItem]
