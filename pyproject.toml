@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dooray_api_wrapper"
-version = "0.0.3"
+version = "0.0.4"
 authors = [
   { name="jooss287", email="jooss287@gmail.com" },
 ]
@@ -15,6 +15,11 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests",
+    "pydantic",
+    "python-dotenv"
 ]
 
 [project.urls]
