@@ -5,11 +5,13 @@ import requests
 
 from datetime import timedelta
 from typing import Optional, Dict
+from dotenv import load_dotenv
 
+load_dotenv(override=True)
 requests_cache.install_cache("api_cache", expire_after=timedelta(hours=2))
 
 host = "https://api.dooray.com"
-token = os.environ.get("DOORAY_TOKEN")
+token = os.getenv("DOORAY_TOKEN")
 header = {"Authorization": f"{token}", "Content-Type": "application/json"}
 
 
