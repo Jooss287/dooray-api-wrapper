@@ -27,7 +27,7 @@ def mocked_get_request_success(*args, **kwargs):
             ),
         ),
         (
-            # GET /wiki/v1/wikis/{wiki-id}/pages
+            # GET /wiki/v1/wikis/{wikiId}/pages
             re.compile(host + r"/wiki/v1/wikis/\d+/pages"),
             MockResponse(
                 {
@@ -53,7 +53,7 @@ def mocked_get_request_success(*args, **kwargs):
             ),
         ),
         (
-            # GET /wiki/v1/wikis/{wiki-id}/pages/{pageId}
+            # GET /wiki/v1/wikis/{wikiId}/pages/{pageId}
             re.compile(host + r"/wiki/v1/wikis/\d+/pages/\d+"),
             MockResponse(
                 {

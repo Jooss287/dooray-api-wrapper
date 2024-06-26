@@ -37,7 +37,25 @@ class TestWiki(unittest.TestCase):
         with patch("requests.put", side_effect=mocked_post_request_success):
             result = dooray_wiki.edit_wiki_page("100", "100", "title", "content")
 
-            self.assertIsNotNone(result)
+            self.assertTrue(result)
+
+    def test_edit_wiki_page_title(self):
+        with patch("requests.put", side_effect=mocked_post_request_success):
+            result = dooray_wiki.edit_wiki_page_title("100", "100", "title")
+
+            self.assertTrue(result)
+
+    def test_edit_wiki_page_content(self):
+        with patch("requests.put", side_effect=mocked_post_request_success):
+            result = dooray_wiki.edit_wiki_page_content("100", "100", "content")
+
+            self.assertTrue(result)
+
+    def test_edit_wiki_page_referrers(self):
+        with patch("requests.put", side_effect=mocked_post_request_success):
+            result = dooray_wiki.edit_wiki_page_referrers("100", "100", ["referrers"])
+
+            self.assertTrue(result)
 
 
 if __name__ == "__main__":

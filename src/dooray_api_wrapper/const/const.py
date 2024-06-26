@@ -15,3 +15,8 @@ class State(str, Enum):
     ACTIVE = "active"
     ARCHIVED = "archived"
     DELETED = "deleted"
+
+
+class ContentType(str, Enum):
+    HTML = "text/html"
+    MARKDOWN = "text/x-markdown"

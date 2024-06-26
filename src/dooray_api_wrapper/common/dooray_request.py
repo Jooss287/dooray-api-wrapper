@@ -32,3 +32,25 @@ def dooray_get(end_point: str, params: Dict = {}) -> Optional[Dict]:
         else:
             print("GET 요청 실패:", response.status_code, response.text)
             return None
+
+
+def dooray_post(end_point: str, body: Dict = {}) -> Optional[Dict]:
+    response = requests.post(host + end_point, headers=header, json=body)
+
+    if response.status_code == 200:
+        print("POST 요청 성공")
+        return response.json()
+    else:
+        print("POST 요청 실패:", response.status_code, response.text)
+        return None
+
+
+def dooray_put(end_point: str, body: Dict = {}) -> Optional[Dict]:
+    response = requests.put(host + end_point, headers=header, json=body)
+
+    if response.status_code == 200:
+        print("PUT 요청 성공")
+        return response.json()
+    else:
+        print("PUT 요청 실패:", response.status_code, response.text)
+        return None
