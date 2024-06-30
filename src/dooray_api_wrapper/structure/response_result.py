@@ -86,3 +86,23 @@ class WikiPageResultItem(BaseModel):
 
 class WikiPageResult(BaseModel):
     result: List[WikiPageResultItem]
+
+
+class MemberResultItem(BaseModel):
+    id: Optional[str] = None
+    name: Optional[str] = None
+    userCode: Optional[str] = None
+    externalEmailAddress: Optional[str] = None
+    idProviderType: Optional[str] = None
+    idProviderUserId: Optional[str] = None
+    defaultOrganization: Optional[Dict] = None
+    locale: Optional[str] = None
+    timezoneName: Optional[str] = None
+    englishName: Optional[str] = None
+    nativeName: Optional[str] = None
+    nickname: Optional[str] = None
+    displayMemberId: Optional[str] = None
+
+
+class MemberResult(BaseModel):
+    result: List[MemberResultItem]
